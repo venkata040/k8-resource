@@ -6,7 +6,8 @@ metadata:
   region: us-west-2
 
 managedNodeGroups:
- - name: roboshop
-instanceType: ["m5.large", "c3.large","c4.large","c5.large"]
-desiredCapacity: 3
-spot: true
+  - name: roboshop-ng
+    minSize: 3
+    maxSize: 3
+    spot: true
+    instanceTypes: ["m5.large", "c3.large", "c4.large", "c5.large"]
