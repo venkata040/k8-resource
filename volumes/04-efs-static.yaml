@@ -8,11 +8,11 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  storageClassName: "" #this should be empty in static provisinoning
+  storageClassName: "" # This should be empty in static provisioning
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-002681cd7b21b8b60
+    volumeHandle: fs-0bce55c2a5841e18c
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -24,7 +24,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 5Gi    
+      storage: 5Gi
 ---
 apiVersion: v1
 kind: Pod
@@ -43,7 +43,7 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: efs-static 
+      claimName: efs-static
 ---
 apiVersion: v1
 kind: Service
@@ -60,4 +60,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80 # service port
-      targetPort: 80 # container port      
+      targetPort: 80 # container port   
